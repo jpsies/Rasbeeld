@@ -9,7 +9,7 @@
 
     <h4>Ras: ${breed.name}, ${species.name}. &nbsp;&nbsp;&nbsp;&nbsp; Vereniging: ${association}</h4>
 
-    <p>${message}</p>
+    <p><strong>${message}</strong></p>
     <p>Aantal vrouwelijke fokdieren: ${N_breeding_females}<br>
     Aantal mannelijke fokdieren: ${N_breeding_males}</p>
     <p>Aantal leden dat dieren van het ras heeft: ${N_breed_keeping_members}<br>s

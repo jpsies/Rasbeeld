@@ -27,7 +27,7 @@ def setup_new_entry_page(request):
         )
         session.add(new_species)
         session.commit()
-    else: 
+    else:
         species_db = species.get_species_by_name(species_name)
         species_uuid = species_db.id
 

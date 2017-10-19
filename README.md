@@ -21,8 +21,8 @@ DutchRareBreeds depends on a few libraries in order to work, installing it with 
 
 First clone the repository using git and go into the new folder:
 ```bash
-git clone git@github.com:jpsies/rasbeeld.git
-cd rasbeeld
+git clone git@github.com:jpsies/Rasbeeld.git
+cd Rasbeeld
 ```
 
 Install virtualenv
