@@ -1,0 +1,47 @@
+<metal:macro use-macro="master">
+  <metal:slot fill-slot="title">
+    <title>${title}</title>
+  </metal:slot>
+
+  <metal:slot fill-slot="content">
+    <div style="margin-bottom:40px">
+    <h1>Contact informatie</h1>
+      <p>Deze website is bedoeld om het uitstervings risico van Nederlandse zeldzame huisdierrassen in kaart te brengen. Deze data kan jaarlijks aangeleverd worden door rasverenigingen die zijn aangesloten bij SZH. Bent u de vertegenwoordiger van uw rasverenigingen en wilt u graag uw ras op deze website, neem dan contact op met SZH. </p></div>
+
+    <h5> Stichting Zeldzaam Huisdierrassen </h5>
+    <img src="${request.static_url('dutch_rare_breeds:static/images/szh-levend-erfgoed.jpg')}" alt="logo-SZH" height="100">
+      <blockquote id='contact-quote' class="blockquote" cite='http://szh.nl/rasorganisaties/'>
+       <p class="mb-0">SZH ondersteunt in waar stamboeken hulp nodig hebben. SZH heeft verbindende rol en kan verenigingen verbinden dmv bijvoorbeeld  platforms. Zo kunnen problemen die meerdere verenigingen raken samen opgepakt worden. Daarnaast hebben we als SZH ook een verbindende rol tussen verenigingen en andere partners zoals kinderboerderijen, scholen, ministerie.</p>
+      </blockquote>
+      <table style="width:100%">
+        <tr>
+          <td >
+            <ul id="textblock">
+              <li> <a href="http://szh.nl/" target="_blank">Website Stichting Zeldzaam Huisdierrassen</a></li>
+              <li> Algemeen emailadres: <a href="mailto:info@szh.nl">info@szh.nl</a></li>
+              <li> <i> Gebouw De Valk, kamer 070 <br> Dreijenlaan 2 <br> 6703 HA Wageningen </i> </li>
+              <li> <p>Voor specifieke contact informatie, ga naar de <a href="http://szh.nl/contact/" target="_blank">contactlijst</a> van SZH.</p></li>
+            </ul>
+          </td>
+      </table>
+
+     
+    <h5> Centrum Genetische Bronnen - Wageningen University </h5>
+    <img src="${request.static_url('dutch_rare_breeds:static/images/WUR_RGB_standard.png')}" alt="WUR-logo" height="50">
+      <blockquote id='contact-quote' class="blockquote" cite='http://www.wur.nl/nl/Expertises-Dienstverlening/Wettelijke-Onderzoekstaken/Centrum-voor-Genetische-Bronnen-Nederland-1/Meer-over-CGN.htm'>
+       <p class="mb-0">Het CGN voert haar werk uit in opdracht van de Nederlandse overheid, maar het behouden van de diversiteit van gewassen, landbouwdieren en bomen kan het CGN uiteraard niet alleen, daarvoor is het een te grote opgave! Daarom werkt het samen in internationale netwerken van vergelijkbare instituten elders in de wereld. Maar ook de Nederlandse plantenveredelings- en fokkerijbedrijven ondersteunen het CGN bij de uitvoering van haar taken. Ze helpen bij het in stand houden, beschrijven en onderzoeken van de collecties, en sponsoren verzamelmissies.</p>
+      </blockquote>
+      <table style="width:100%">
+        <tr>
+          <td>
+            <ul id="textblock">
+              <li> <a href="http://www.wur.nl/nl/Expertises-Dienstverlening/Wettelijke-Onderzoekstaken/Centrum-voor-Genetische-Bronnen-Nederland-1.htm" target="_blank">Website Centrum Genetische Bronnen Nederland</a></li>
+              <li>Algemeen emailadres: <a href="mailto:cgn@wur.nl">cgn@wur.nl</a></li>
+              <li> <i> Radix <br>Droevendaalsesteeg 1 <br> Building 107 <br> 6708 PB Wageningen</i></li>
+              <li>Contactpersoon: <a href="http://www.wur.nl/nl/Personen/ing.-FBJ-Frank-Menting.htm" target="_blank">ing. FBJ Menting</a></li>
+            </ul>
+          </td>
+      </table>
+        
+  </metal:slot>
+</metal:macro>

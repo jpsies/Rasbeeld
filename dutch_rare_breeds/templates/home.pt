@@ -1,0 +1,70 @@
+<metal:macro use-macro="master">
+
+<metal:slot fill-slot="css">
+  <link rel="stylesheet" type="text/css" href="${request.static_url('dutch_rare_breeds:static/css/header.css')}">
+</metal:slot>
+
+  <metal:slot fill-slot="content">
+
+    <script type="text/javascript">
+        $(function() {
+              $('img').on('click', function() {
+              $('.enlargeImageModalSource').attr('src', $(this).attr('src'));
+              $('#enlargeImageModal').modal('show');
+            });
+        });
+    </script>
+
+    <div class="row">
+      <div class="col-sm-8">
+        <p>Deze website kan een risico-analyse uitvoeren voor de bedreiging van zeldzame nederlandse landbouwhuisdierrassen. Bent u geïnteresseerd in de risico-analyse van een ras, vul dan hieronder de soort, ras en aangesloten rasvereniging in.</p>
+        <p>Staat een Nederlands ras er nog niet in en denkt u gerechtigd te zijn om deze in te voeren, neem dan <a href="/contact">contact</a> op met Stichting Zeldzame Huisdierrassen.</p>
+
+        <div class="form-inline" id="blue-block" style="display:inline-block !important;">
+
+          <div class="row" style="display:inline-block !important;">
+            <select class="form-control col-xs-3" id="mySelectSpecies">
+              <option disabled selected>Kies soort</option>
+            </select>
+            <select class="form-control col-xs-3" id="mySelectBreed">
+              <option disabled selected>Kies ras</option>
+            </select>
+            <select class="form-control col-xs-3" id="mySelectAssociation">
+              <option disabled selected>Kies vereniging</option>
+            </select>
+            <button type="submit" id="requestStatus" class="btn btn-default col-xs-3">Bekijk ras</button>
+          </div>
+            
+
+        </div>
+
+      </div>
+      <div class="col-sm-4">
+        <h4><i>Voorbeeld van de grafische weergave</i></h4>
+         <div class="modal fade" id="enlargeImageModal" tabindex="-1" role="dialog" aria-labelledby="enlargeImageModal" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                  <img src="" class="enlargeImageModalSource" style="width: 100%;">
+                </div>
+              </div>
+            </div>
+        </div>
+        <img id="example-graph" src="${request.static_url('dutch_rare_breeds:static/images/example_graph.png')}" alt="example-graph" width="300">
+      </div>
+    </div>
+
+    <div id="textblock">
+      <p>
+       Rasbeeld.nl gebruikt de zelfontwikkelde iRADAR (integrated Risk Assessment of Domestic Animal Resources) tool om een risico-analyse te maken aan de hand van 6 indicatoren. Deze indicatoren worden berekend door middel van een enquête die wordt ingevuld. In deze enquête zitten vragen over populatiegegevens van het ras, vragen over de aangesloten rasvereniging en over de sociale en economische context van het ras. De vragen zijn d.m.v. een haalbaarheidsstudie zo opgesteld, dat deze makkelijk in te vullen zijn voor bestuur en/of secretaris van een rasvereniging. Direct hierna zal iRADAR een grafische representatie geven van het dreigingsniveau van het ras. Deze analyse is daarna altijd op te vragen op de website. De grafische weergave geeft een indicatie waar de sterke en zwakke punten van dit ras liggen en waar verbeteringen mogelijk zijn.
+      </p>
+    </div>
+  </metal:slot>
+  <metal:slot fill-slot="js">
+    <script src= "${request.static_url('dutch_rare_breeds:static/js/select.js')}" type="text/javascript" ></script>
+    <script src= "${request.static_url('dutch_rare_breeds:static/js/init.js')}" type="text/javascript" ></script>
+</metal:slot>
+</metal:macro>

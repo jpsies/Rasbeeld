@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="${request.static_url('dutch_rare_breeds:static/images/favicon.png')}">
+    <metal:slot metal:define-slot="css" />
+           <!-- CSS for own style 
+   <link rel="stylesheet" type="text/css" href="${request.static_url('dutch_rare_breeds:static/css/style.css')}">
+   -->
+
+       <!-- Bootstrap core CSS -->
+   <link rel="stylesheet" type="text/css" href="${request.static_url('dutch_rare_breeds:static/css/bootstrap.min.css')}">
+    <link rel="stylesheet" type="text/css" href="${request.static_url('dutch_rare_breeds:static/css/starter-template.css')}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+
+
+    <!-- Custom styles for this template -->
+    <title>${title}</title>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary fixed-top">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="/"> <strong>Rasbeeld</strong> </a>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"> <a class="nav-link" href="/">Home</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="/contact">Contact</a> </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="/admin">Admin</a> </li>
+        </ul>
+
+      </div>
+    </nav>
+
+    <div id="header" style="display:none" >
+      <div class="jumbotron jumbotron-fluid" id="jumbotron-header">
+        <div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-5">
+            <h1 class="display-3"><strong>Rasbeeld</strong></h1>
+            <h3 class="lead"><i>Risico-analyse voor<br>
+            Zeldzame Huisdierrassen Nederland</i> </h3>
+            <hr>
+            <p> Analyse tool ontwikkeld door Master Studenten aan de Universiteit van Wageningen in opdracht van Stichting Zeldzaam Huisdierrassen en Centrum voor Genetische Bronnen Nederland </p>
+          </div>
+          <div class="col-sm-1"></div>
+          <div class="col-sm-4">
+            <img src="${request.static_url('dutch_rare_breeds:static/images/header-logo.png')}" id='logo-header' alt="rasbeeld-logo">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container" id="page-container">
+      <div class="starter-template">
+       <metal:slot metal:define-slot="title" />
+       <metal:slot metal:define-slot="content" />
+      </div>
+    </div><!-- /.container -->
+    
+      
+    <div class="footer">
+      
+        <!-- Modals -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+      <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title" style="text-align:center">Disclaimer</h4>
+            </div>
+            <div class="modal-body" style="line-height:120%">
+              <p>This web app is developed during an Academic Consultancy Training course at the Wageningen University. The information contained in this website is for information purposes only. The information is provided by a collaboration between <a href="https://wur.nl" target="_blank">Wageningen University</a> - Center for Genetic Resources Netherlands and The Dutch Rare Breed Survival Trust (<a href="http://szh.nl/" target="_blank">SZH</a>).  We make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk. 
+                <br>
+              In no event will we be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arising out of, or in connection with, the use of this website.
+              </p>
+              <hr>
+              <p>Deze webapp is ontwikkeld tijdens een Academische Consultancy Training cursus aan de Wageningen Universiteit. De inhoud van deze website is alleen ter informatie. De informatie wordt verstrekt door een samenwerking tussen de <a href="https://wur.nl" target="_blank"> Wageningen Universiteit </a> - Centrum voor Genetische Bronnen Nederland en de Stichting Zeldzaam Huisdierrassen (<a href = "http://szh.nl/" target="_blank">SZH </a>). Wij maken geen enkele vertegenwoordiging of garantie van enige aard, uitdrukkelijk of impliciet, over de volledigheid, nauwkeurigheid, betrouwbaarheid, geschiktheid of beschikbaarheid ten aanzien van de website of de informatie, producten, diensten of gerelateerde grafieken die op de website aanwezig zijn voor elk doel. Eventuele vertrouwen die u op dergelijke informatie legt, is daarom strikt op eigen risico. 
+                <br>
+              In geen geval kunnen wij aansprakelijk worden gesteld voor verlies of schade, inclusief, zonder beperking, indirecte of gevolgschade of verlies, welke voortvloeit uit verlies van gegevens of winst die voortvloeien uit of in verband met het gebruik van deze website.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+       </div>
+       <div class="container">
+        <div class="row">
+          <div class="col-4" id="footer-left">
+            <!-- Trigger the modal with a button -->
+          <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">Disclaimer</button>
+          </div>
+          <div class="col-3" id="footer-middle">
+            &copy; 2017 rasbeeld.nl
+          </div>
+          <div class="col-5" id="footer-right" >
+            iRADAR
+          </div>
+        </div>
+      </div>
+      </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="${request.static_url('dutch_rare_breeds:static/js/bootstrap.min.js')}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="${request.static_url('dutch_rare_breeds:static/js/ie10-viewport-bug-workaround.js')}"></script>
+           <!-- Javascript for radar -->
+    <metal:slot metal:define-slot="js" />
+
+  </body>
+</html>
+

@@ -1,0 +1,41 @@
+<metal:macro use-macro="master">
+  <metal:slot fill-slot="title">
+    <title>${title}</title>
+  </metal:slot>
+
+  <metal:slot fill-slot="content">
+    <a href="${edit_link}" class="btn btn-primary float-right" id="edit-link" role="button">Update gegevens doorvoeren</a>
+    <h1>${title}</h1>
+
+    <h4>Ras: ${breed.name}, ${species.name}. &nbsp;&nbsp;&nbsp;&nbsp; Vereniging: ${association}</h4>
+
+    <p>${message}</p>
+    <p>Aantal vrouwelijke fokdieren: ${N_breeding_females}<br>
+    Aantal mannelijke fokdieren: ${N_breeding_males}</p>
+    <p>Aantal leden dat dieren van het ras heeft: ${N_breed_keeping_members}<br>s
+    Aantal actieve fokkers: ${N_active_breeders}<br>Verwachting over 5 jaar: ${continuity_breeding}</p>
+    <p>Provincies: ${provinces}<br>
+    Dieren aanwezig in het buitenland: ${abroad}, ${abroad_examples}</p>
+    <p>Promotie voor het ras: ${promotion}<br>
+    Activiteiten: ${activities}</p>
+    <p>Stamboek: ${herdbook}<br>
+    Onderdelen fokprogramma: ${elements_breeding_program}<br>
+    Opslag in cryobank: ${cryobank}</p>
+    <p>Beperkingen in de fokkerij: ${breeding_limitations}<br>
+    Professionele fokkers: ${professional_members}</p>
+    <p>Winstgevende producten mogelijk met dit ras: ${profitable_output}, ${output_examples}</p>
+    <p>Rasgebonden producten: ${specialty_use}, ${specialty_examples}</p>
+    <p>Ondersteuning door de overheid: ${governmental_support}, ${support_examples}</p>
+    <script>
+    radarvalues = ${radar};
+    </script>
+    <div id='myChart'></div>
+  </metal:slot>
+
+  <metal:slot fill-slot="js">
+    <script src= "https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9","ee6b7db5b51705a13dc2339db3edaf6d"];</script>
+    <script src= "${request.static_url('dutch_rare_breeds:static/js/radar.js')}" type="text/javascript" ></script>
+  </metal:slot>
+</metal:macro>

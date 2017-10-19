@@ -1,0 +1,319 @@
+<metal:macro use-macro="master">
+  <metal:slot fill-slot="title">
+    <title>${title}</title>
+  </metal:slot>
+
+  <metal:slot fill-slot="content">
+    <h2>Aanpassen ${breed} van ${risk_factor_data.name_association}</h2>
+
+    <p>Let op: Wanneer uw vereniging meerdere rassen herbergt dient u toch voor elk ras een nieuw formulier in te vullen.</p>
+
+    <form action='/save' method='POST'>
+
+      <input type="hidden" name="species" value="${species}">
+      <input type="hidden" name="breed" value="${breed}">
+      <input type="hidden" name="name_association" value="${risk_factor_data.name_association}">
+
+      <div class="form-group">
+        <legend>Aantallen</legend>
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="N_breeding_females">${question.N_breeding_females}</label>
+              <br>
+              <input type="number" name="N_breeding_females" value="${risk_factor_data.N_breeding_females}" min="0" required>
+              <br>
+              <label for="N_breeding_males">${question.N_breeding_males}</label>
+              <br>
+              <input type="number" name="N_breeding_males" value="${risk_factor_data.N_breeding_males}" min="0" required>
+            </div>
+            <div class="col-sm-6">
+              <label for="N_breed_keeping_members">${question.N_breed_keeping_members}</label><br>
+              <input type="number" name="N_breed_keeping_members" value="${risk_factor_data.N_breed_keeping_members}" min="0" required><br>
+              <label for="N_active_breeders">${question.N_active_breeders}</label><br>
+              <input type="number" name="N_active_breeders" value="${risk_factor_data.N_active_breeders}" min="0" required>
+            </div>
+          </div>
+      </div>
+<hr>
+      <div class="form-group">
+        <legend>Leden</legend>     
+        <fieldset id="continuity_breeding">
+        <label for="continuity_breeding">${question.N_continuity_breeding}<span class="form-explanation">${question.N_continuity_breeding_explanation}</span></label>
+          <div class="form-check">
+            <label class="form-check-label" class="radio-inline" >
+              <input type="radio" class="form-check-input" name="continuity_breeding" id="continuity_1" value="0">
+                ${question.N_continuity_breeding_1}
+            </label>
+            <label class="form-check-label" class="radio-inline" >
+              <input type="radio" class="form-check-input" name="continuity_breeding" id="continuity_2" value="1">
+                ${question.N_continuity_breeding_2}
+            </label>
+            <label class="form-check-label" class="radio-inline" >
+              <input type="radio" class="form-check-input" name="continuity_breeding" id="continuity_3" value="2">
+                ${question.N_continuity_breeding_3}
+            </label>
+            <input id="continuity_breeding_value" type="hidden" value="${risk_factor_data.continuity_breeding}" />
+          </div>
+        </fieldset>
+        <fieldset id="provinces">
+        <label for="provinces">${question.provinces}<span class="form-explanation">${question.provinces_explanation}</span></label>
+          <div class="form-check">
+            <div class="row">
+              <div class="col-sm-6">
+                <label class="checkbox"><input id="provinces_0" type="checkbox" value="0" name="provinces"> Groningen</label><br>
+                <label class="checkbox"><input id="provinces_1" type="checkbox" value="1" name="provinces"> Friesland</label><br>
+                <label class="checkbox"><input id="provinces_2" type="checkbox" value="2" name="provinces"> Drenthe</label><br>
+                <label class="checkbox"><input id="provinces_3" type="checkbox" value="3" name="provinces"> Overijssel</label><br>
+                <label class="checkbox"><input id="provinces_4" type="checkbox" value="4" name="provinces"> Flevoland</label><br>
+                <label class="checkbox"><input id="provinces_5" type="checkbox" value="5" name="provinces"> Gelderland</label>
+              </div> 
+              <div class="col-sm-6">
+                <label class="checkbox"><input id="provinces_6" type="checkbox" value="6" name="provinces"> Utrecht</label><br>
+                <label class="checkbox"><input id="provinces_7" type="checkbox" value="7" name="provinces"> Noord-Holland</label><br>
+                <label class="checkbox"><input id="provinces_8" type="checkbox" value="8" name="provinces"> Zuid-Holland</label><br>
+                <label class="checkbox"><input id="provinces_9" type="checkbox" value="9" name="provinces"> Zeeland</label><br>
+                <label class="checkbox"><input id="provinces_10" type="checkbox" value="10" name="provinces"> Noord-Brabant</label><br>
+                <label class="checkbox"><input id="provinces_11" type="checkbox" value="11" name="provinces"> Limburg</label>
+              </div>
+            </div>
+            <input id="provinces_value" type="hidden" value="${risk_factor_data.provinces}" />
+          </div>
+        </fieldset>
+        <fieldset id="breed_present_abroad">
+        <label for="breed_present_abroad">${question.breed_present_abroad}<span class="form-explanation">${question.breed_present_abroad_explanation}</span></label>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" class="radio-inline" name="breed_present_abroad" id="breed_present_abroad_1" value="0" >
+                ${question.breed_present_abroad_1}
+            </label>
+          <label class="form-check-label">
+              <input type="radio" class="form-check-input" class="radio-inline" name="breed_present_abroad" id="breed_present_abroad_2" value="1">
+                ${question.breed_present_abroad_2}
+            </label>
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" class="radio-inline" name="breed_present_abroad" id="breed_present_abroad_3" value="2">
+                ${question.breed_present_abroad_3}
+            </label>
+            <input id="breed_present_abroad_value" type="hidden" value="${risk_factor_data.breed_present_abroad}" />
+          <label for="abroad_examples">${question.abroad_examples}</label>
+              <input type="text-area" row="3" name="abroad_examples" placeholder="Waar? En hoeveel dieren?" value="${risk_factor_data.abroad_examples}" class="col-sm-8">
+
+            </div>
+        </fieldset>
+
+      </div>
+        <br>
+<hr>
+      <div class="form-group">
+      <legend>Organisatie</legend>
+        <div class="row">
+          <div class="col-sm-6">
+            <fieldset id="activities">
+              <label for="activities">${question.activities}</label>
+                <div class="form-check">
+                  <label class="checkbox"><input type="checkbox" value="0" name="activities" id="activities_0"> Algemene ledenvergadering</label><br>
+                  <label class="checkbox"><input type="checkbox" value="1" name="activities" id="activities_1"> Keuringen</label><br>
+                  <label class="checkbox"><input type="checkbox" value="2" name="activities" id="activities_2"> Cursus</label><br>
+                  <label class="checkbox"><input type="checkbox" value="3" name="activities" id="activities_3"> Show evenement</label><br>
+                  <label class="checkbox"><input type="checkbox" value="4" name="activities" id="activities_4"> Sportevenement</label><br>
+                  <label class="checkbox"><input type="checkbox" value="5" name="activities" id="activities_5"> Excursie</label><br>
+                  <label class="checkbox"><input type="checkbox" value="6" name="activities" id="activities_6"> Gastspreker</label><br>
+                  <label class="checkbox"><input type="checkbox" value="7" name="activities" id="activities_7"> Nieuwsbrief of clubblad</label><br>
+                  <label class="checkbox"><input type="checkbox" value="8" name="activities" id="activities_8"> Merchandise </label><br>
+                  <label class="checkbox"><input type="checkbox" value="9" name="activities" id="activities_9"> Anders, namelijk:</label><input type="text" name="other_activities" placeholder="...">
+                  <input id="activities_value" type="hidden" value="${risk_factor_data.activities}" />
+                </div>
+            </fieldset>
+          </div>
+          <div class="col-sm-6">
+            <fieldset id="promotion">
+              <label for="promotion">${question.promotion}</label>
+                <div class="form-check">
+                  <label class="checkbox"><input type="checkbox" value="0" name="promotion" id="promotion_0"> Website</label><br>
+                  <label class="checkbox"><input type="checkbox" value="1" name="promotion" id="promotion_1"> Sociale media</label><br>
+                  <label class="checkbox"><input type="checkbox" value="2" name="promotion" id="promotion_2"> Evenementen of jaarmarkten</label><br>
+                  <label class="checkbox"><input type="checkbox" value="3" name="promotion" id="promotion_3"> Tentoonstellingen toegankelijk voor niet-leden</label><br>
+                  <label class="checkbox"><input type="checkbox" value="4" name="promotion" id="promotion_4"> Artikelen in tijdschriften</label><br>
+                  <label class="checkbox"><input type="checkbox" value="5" name="promotion" id="promotion_5"> Crowdfunding</label><br>
+                  <label class="checkbox"><input type="checkbox" value="6" name="promotion" id="promotion_6"> Anders, namelijk:</label><input type="text" name="other_activities" placeholder="...">
+                  <input id="promotion_value" type="hidden" value="${risk_factor_data.promotion}" />
+                </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+<hr>
+      <div class="form-group">
+      <legend>Fokkerij</legend>
+        <fieldset id="herdbook">
+        <label for="herdbook">${question.herdbook}<span class="form-explanation">${question.herdbook_explanation}</span></label>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" class="radio-inline" name="herdbook" id="herdbook_1" value="0">
+                ${question.herdbook_1}
+            </label>
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" class="radio-inline" name="herdbook" id="herdbook_2" value="1">
+                ${question.herdbook_2}
+            </label>
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" class="radio-inline" name="herdbook" id="herdbook_3" value="2">
+                ${question.herdbook_3}
+            </label>
+            <input id="herdbook_value" type="hidden" value="${risk_factor_data.herdbook}" />
+          </div>
+        </fieldset>
+        <fieldset id="elements_breeding_program">
+        <label for="elements_breeding_program">${question.elements_breeding_program}</label>
+          <div class="form-check">
+            <label class="checkbox-inline"><input type="checkbox" value="0" name="elements_breeding_program" id="elements_breeding_program_0"> ${question.elements_breeding_program_1}</label>
+            <label class="checkbox-inline"><input type="checkbox" value="1" name="elements_breeding_program" id="elements_breeding_program_1"> ${question.elements_breeding_program_2}</label>
+            <label class="checkbox-inline"><input type="checkbox" value="2" name="elements_breeding_program" id="elements_breeding_program_2"> ${question.elements_breeding_program_3}</label>
+            <input id="elements_breeding_program_value" type="hidden" value="${risk_factor_data.elements_breeding_program}" />
+          </div>
+        </fieldset>
+        <fieldset id="cryobank">
+          <label for="cryobank">${question.cryobank}<span class="form-explanation">${question.cryobank_explanation}</span></label>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" class="radio-inline" name="cryobank" id="cryobank_1" value="0">
+                ${question.cryobank_1}
+              </label>
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" class="radio-inline" name="cryobank" id="cryobank_2" value="1">
+                ${question.cryobank_2}
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" class="radio-inline" name="cryobank" id="cryobank_3" value="2">
+                ${question.cryobank_3}
+              </label>
+              </label>
+            </div>
+        </fieldset>
+      </div>
+
+<hr>
+      <div class="form-group">
+        <legend>Beperkingen en economische aantrekkelijkheid van het ras</legend>
+        <fieldset id="breeding_limitations">
+          <label for="breeding_limitations">${question.breeding_limitations}<span class="form-explanation">${question.breeding_limitations_explanation}</span></label>
+            <div class="form-check">
+              <label class="checkbox">
+                <input type="checkbox" name="breeding_limitations" id="breeding_limitations_0" value="0"> Verandering in beschikbaarheid van land of ruimte</label><br>
+              <label class="checkbox">
+                <input type="checkbox" name="breeding_limitations" id="breeding_limitations_1" value="1"> Verandering in beschikbaarheid van dieren
+              </label><br>
+              <label class="checkbox">
+                <input type="checkbox" name="breeding_limitations" id="breeding_limitations_2" value="2"> Nieuwe regelgeving m.b.t. vaccinaties
+              </label><br>
+              <label class="checkbox">
+                <input type="checkbox" name="breeding_limitations" id="breeding_limitations_3" value="3"> Nieuwe regelgeving m.b.t. emissies
+              </label><br>
+              <label class="checkbox">
+                <input type="checkbox" name="breeding_limitations" id="breeding_limitations_4" value="4"> Overige nieuwe regelgeving m.b.t:
+              </label><input type="text" name="other_activities" placeholder="..."><br>
+              <label class="checkbox">
+                <input type="checkbox" name="breeding_limitations" id="breeding_limitations_5" value="5"> Kennis bij nieuwe leden over het houden of fokken van het ras
+              </label><br>
+              <label class="checkbox">
+                <input type="checkbox" name="breeding_limitations" id="breeding_limitations_6" value="6"> Aanschafprijs van de dieren
+              </label><br> 
+              <label class="checkbox">
+                <input type="checkbox" name="breeding_limitations" id="breeding_limitations_7" value="7"> Afzet van overtollige dieren
+              </label><br>
+              <label class="checkbox">
+                <input type="checkbox" name="breeding_limitations" id="breeding_limitations_8" value="8"> Lokale overlast door de dieren
+              </label><br>
+              <label class="checkbox">
+                <input type="checkbox" name="breeding_limitations" id="breeding_limitations_9" value="9"> Overschot van mest
+              </label><br>
+              <label class="checkbox">
+                <input type="checkbox" name="breeding_limitations" id="breeding_limitations_10" value="10"> Anders, namelijk:
+              </label>
+              <input type="text" name="other_activities" placeholder="...">
+              <input id="breeding_limitations_value" type="hidden" value="${risk_factor_data.breeding_limitations}" />
+            </div>
+        </fieldset>
+        <fieldset id="professional_members">
+        <label for="professional_members">${question.professional_members}<span class="form-explanation">${question.professional_members_explanation}</span></label>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" class="radio-inline" name="professional_members" id="professional_members_1" value="0">
+              ${question.professional_members_1}
+            </label>
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" class="radio-inline" name="professional_members" id="professional_members_2" value="1">
+              ${question.professional_members_2}
+            </label>
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" class="radio-inline" name="professional_members" id="professional_members_3" value="2">
+              ${question.professional_members_3}
+            </label>
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" class="radio-inline" name="professional_members" id="professional_members_4" value="3">
+              ${question.professional_members_4}
+            </label>
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" class="radio-inline" name="professional_members" id="professional_members_5" value="4">
+              ${question.professional_members_5}
+            </label>
+            <input id="professional_members_value" type="hidden" value="${risk_factor_data.professional_members}" />
+          </div>
+        </fieldset>
+        <fieldset id="profitable_output">
+          <label for="profitable_output">${question.profitable_output}<span class="form-explanation">${question.profitable_output_explanation}</span></label>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" class="radio-inline" name="profitable_output" id="profitable_output_1" value="0">
+                Ja
+              </label>
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" class="radio-inline" name="profitable_output" id="profitable_output_2" value="1">
+                Nee
+              </label>
+              <input id="profitable_output_value" type="hidden" value="${risk_factor_data.profitable_output}" />
+            </div>
+              <label for="output_examples">Extra uitleg:</label>
+                <input type="text-area" row="3" name="output_examples" placeholder="wat voor producten?" value="${risk_factor_data.output_examples}" class="col-sm-8">
+        </fieldset>
+        <fieldset id="specialty_use">
+        <label for="specialty_use">${question.specialty_use}</label>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" class="radio-inline" name="specialty_use" id=specialty_use_1" value="0">
+                ${question.specialty_use_1}
+            </label>
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" class="radio-inline" name="specialty_use" id="specialty_use_2" value="1">
+                ${question.specialty_use_2}
+            </label>
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" class="radio-inline" name="specialty_use" id="specialty_use_2" value="2">
+              ${question.specialty_use_3}
+            </label>
+              <input id="specialty_use_value" type="hidden" value="${risk_factor_data.specialty_use}" />
+          </div>
+            <label for="specialty_examples">Extra uitleg:</label>
+              <input type="text-area" row="3" name="specialty_examples" placeholder="wat voor producten? welk merk?" value="${risk_factor_data.specialty_examples}" class="col-sm-8">
+        </fieldset>
+        <fieldset id="governmental_support">
+          <label for="governmental_support">${question.governmental_support}</label>
+            <div class="form-check">
+              <label class="checkbox-inline">
+                <input type="checkbox" name="governmental_support" id="governmental_support_0" value="0"> ${question.governmental_support_1}</label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="governmental_support" id="governmental_support_1" value="1"> ${question.governmental_support_2}</label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="governmental_support" id="governmental_support_2" value="2"> ${question.governmental_support_3}</label>
+                <input type="text-area" row="3" name="support_examples" placeholder="..." value="${risk_factor_data.support_examples}" class="col-sm-8">
+              <input id="governmental_support_value" type="hidden" value="${risk_factor_data.governmental_support}" />
+            </div>
+        </fieldset>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Indienen</button>
+    </form>
+  </metal:slot>
+  <metal:slot fill-slot="js">
+    <script src= "${request.static_url('dutch_rare_breeds:static/js/fill-form.js')}" type="text/javascript" ></script>
+  </metal:slot>
+</metal:macro>

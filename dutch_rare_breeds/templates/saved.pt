@@ -1,0 +1,11 @@
+<metal:macro use-macro="master">
+  <metal:slot fill-slot="title">
+    <title>${title}</title>
+  </metal:slot>
+
+  <metal:slot fill-slot="content">
+    <h1>${title}</h1>
+       <p>Data voor ${species.name} is saved on ${risk_factor.timestamp}</p>
+       <p> <a href="/status/${species.id}/${breed.id}/${name_association}">Bekijk de status van ${breed.name} volgens ${name_association}</a></p>
+  </metal:slot>
+</metal:macro>
