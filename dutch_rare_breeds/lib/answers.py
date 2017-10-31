@@ -35,31 +35,37 @@ def abroad(value):
         return presence.index(value)
 
 def promotion(value):
-    promotionlist = [
-        'Website',
-        'Sociale media',
-        'Evenementen of jaarmarkten',
-        'Tentoonstellingen toegankelijk voor niet leden',
-        'Artikelen in tijdschriften',
-        'Crowdfunding',
-        'Anders'
-    ]
-    return [promotionlist[int(i)] for i in value.split(',')]
+    if value == '':
+        return ['Geen promotie activiteiten']
+    else:
+        promotionlist = [
+            'Website',
+            'Sociale media',
+            'Evenementen of jaarmarkten',
+            'Tentoonstellingen toegankelijk voor niet leden',
+            'Artikelen in tijdschriften',
+            'Crowdfunding',
+            'Anders'
+        ]
+        return [promotionlist[int(i)] for i in value.split(',')]
 
 def activities(value):
-    activitylist = [
-        'Algemene ledenvergadering',
-        'Keuringen',
-        'Cursus',
-        'Show evenement',
-        'Sportevenement',
-        'Excursie',
-        'Gastspreker',
-        'Nieuwsbrief of clubblad',
-        'Merchandise',
-        'Anders, namelijk'
-    ]
-    return [activitylist[int(i)] for i in value.split(',')]
+    if value == '':
+        return ['Geen activiteiten']
+    else:
+        activitylist = [
+            'Algemene ledenvergadering',
+            'Keuringen',
+            'Cursus',
+            'Show evenement',
+            'Sportevenement',
+            'Excursie',
+            'Gastspreker',
+            'Nieuwsbrief of clubblad',
+            'Merchandise',
+            'Anders, namelijk'
+        ]
+        return [activitylist[int(i)] for i in value.split(',')]
 
 def herdbook(value):
     presence = ['Ja, een gesloten stamboek', 'Ja een open stamboek', 'Nee']
@@ -69,15 +75,15 @@ def herdbook(value):
         return presence.index(value)
 
 def elements_breeding_program(value):
-    presence = [
-        'Ja, de gegevens worden vastgelegd in een centrale database',
-        'Ja, de vereniging stimuleert diversiteit in het gebruik van mannelijke fokdieren',
-        'Ja, de vereniging geeft paringsadvies'
-    ]
-    if isinstance(value, int):
-        return presence[value]
+    if value == '':
+        return ['Geen onderdelen van fokprogramma']
     else:
-        return presence.index(value)
+        presence = [
+            'Ja, de gegevens worden vastgelegd in een centrale database',
+            'Ja, de vereniging stimuleert diversiteit in het gebruik van mannelijke fokdieren',
+            'Ja, de vereniging geeft paringsadvies'
+        ]
+        return [presence[int(i)] for i in value.split(',')]
 
 def cryobank(value):
     presence = ['Ja', 'Nee', 'Niet bekend']
@@ -134,12 +140,11 @@ def specialty_use(value):
         return presence.index(value)
 
 def governmental_support(value):
-    presence = [
-        'Ja, financieel',
-        'Ja, ze stellen land of diensten beschikbaar (Natura)',
-        'Ja, anders'
-    ]
-    if isinstance(value, int):
-        return presence[value]
+    if value == '':
+        return ['Geen ondersteuning']
     else:
-        return presence.index(value)
+        presence = [
+            'Financieel',
+            'Land of diensten zijn beschikbaar (Natura)'
+        ]
+        return [presence[int(i)] for i in value.split(',')]

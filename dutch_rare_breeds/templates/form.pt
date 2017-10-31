@@ -166,9 +166,9 @@
         <fieldset id="elements_breeding_program">
         <label for="elements_breeding_program">${question.elements_breeding_program}</label>
           <div class="form-check">
-            <label class="checkbox-inline"><input type="checkbox" value="0" name="elements_breeding_program" id="elements_breeding_program_0"> ${question.elements_breeding_program_1}</label>
-            <label class="checkbox-inline"><input type="checkbox" value="1" name="elements_breeding_program" id="elements_breeding_program_1"> ${question.elements_breeding_program_2}</label>
-            <label class="checkbox-inline"><input type="checkbox" value="2" name="elements_breeding_program" id="elements_breeding_program_2"> ${question.elements_breeding_program_3}</label>
+            <label class="checkbox"><input type="checkbox" value="0" name="elements_breeding_program" id="elements_breeding_program_0"> ${question.elements_breeding_program_1}</label><br>
+            <label class="checkbox"><input type="checkbox" value="1" name="elements_breeding_program" id="elements_breeding_program_1"> ${question.elements_breeding_program_2}</label><br>
+            <label class="checkbox"><input type="checkbox" value="2" name="elements_breeding_program" id="elements_breeding_program_2"> ${question.elements_breeding_program_3}</label>
             <input id="elements_breeding_program_value" type="hidden" value="${risk_factor_data.elements_breeding_program}" />
           </div>
         </fieldset>
@@ -298,12 +298,10 @@
         <fieldset id="governmental_support">
           <label for="governmental_support">${question.governmental_support}</label>
             <div class="form-check">
-              <label class="checkbox-inline">
-                <input type="checkbox" name="governmental_support" id="governmental_support_0" value="0"> ${question.governmental_support_1}</label>
-              <label class="checkbox-inline">
+              <label class="checkbox">
+                <input type="checkbox" name="governmental_support" id="governmental_support_0" value="0"> ${question.governmental_support_1}</label><br>
+              <label class="checkbox">
                 <input type="checkbox" name="governmental_support" id="governmental_support_1" value="1"> ${question.governmental_support_2}</label>
-              <label class="checkbox-inline">
-                <input type="checkbox" name="governmental_support" id="governmental_support_2" value="2"> ${question.governmental_support_3}</label>
                 <input type="text-area" row="3" name="support_examples" placeholder="..." value="${risk_factor_data.support_examples}" class="col-sm-8">
               <input id="governmental_support_value" type="hidden" value="${risk_factor_data.governmental_support}" />
             </div>

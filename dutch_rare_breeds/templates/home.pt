@@ -8,7 +8,7 @@
 
     <script type="text/javascript">
         $(function() {
-              $('img').on('click', function() {
+              $('#example-graph').on('click', function() {
               $('.enlargeImageModalSource').attr('src', $(this).attr('src'));
               $('#enlargeImageModal').modal('show');
             });

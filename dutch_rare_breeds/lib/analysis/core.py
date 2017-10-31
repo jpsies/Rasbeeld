@@ -1,5 +1,6 @@
 # pylint: disable-msg=too-few-public-methods
 # pylint: disable-msg=no-else-return
+# pylint: disable-msg=len-as-condition
 import configparser
 import os
 from dutch_rare_breeds.lib.db.model import risk_factors, breeds, species
@@ -60,12 +61,12 @@ class Analysis():
 
     def indicatorFive(self, data_risk_factor):
         association = self._check_name_association(data_risk_factor.name_association)
-        elements_breeding_program = data_risk_factor.elements_breeding_program
+        elements_breeding_program_score = self._score_breeding_program(data_risk_factor.elements_breeding_program)
         cryobank_score = self._cryobank_scoring(data_risk_factor.cryobank)
         herdbook = data_risk_factor.herdbook
         activities_score = self._activities(data_risk_factor.activities)
         promotion_score = self._promotion(data_risk_factor.promotion)
-        answers = [association, elements_breeding_program, cryobank_score, herdbook, activities_score, promotion_score]
+        answers = [association, elements_breeding_program_score, cryobank_score, herdbook, activities_score, promotion_score]
         weights = [1, 1, 1, 1, 1, 1]
         getvalue = indicator_five.IndicatorFive()
         value = getvalue.category(answers, weights)
@@ -76,20 +77,40 @@ class Analysis():
         professional_members_score = self._prof_scoring(data_risk_factor.professional_members)
         profitable_output = data_risk_factor.profitable_output
         specialty_use = data_risk_factor.specialty_use
-        governmental_support = data_risk_factor.governmental_support
+        governmental_support_score = self._government_score(data_risk_factor.governmental_support)
         continuity_breeding = data_risk_factor.continuity_breeding
         answers = [
             breeding_limitations_score,
             professional_members_score,
             profitable_output,
             specialty_use,
-            governmental_support,
+            governmental_support_score,
             continuity_breeding
         ]
         weights = [1, 1, 1, 1, 1, 1]
         getvalue = indicator_six.IndicatorSix()
         value = getvalue.category(species, answers, weights)
         return value
+
+    @staticmethod
+    def _score_breeding_program(elements_breeding_program):
+        if elements_breeding_program == '':
+            return 2
+        elif len(elements_breeding_program) == 1:
+            return 1
+        elif len(elements_breeding_program) >= 2:
+            return 0
+
+    @staticmethod
+    def _government_score(governmental_support):
+        if governmental_support == '':
+            return 2
+        elif len(governmental_support) == 0:
+            return 1
+        elif len(governmental_support) == 1:
+            return 1
+        else:
+            return 0
 
     @staticmethod
     def _check_name_association(name_association):
@@ -109,7 +130,7 @@ class Analysis():
     def _activities(activities):
         if activities == '':
             return 2
-        if len(activities) >= 5:
+        elif len(activities) >= 5:
             return 0
         elif len(activities) <= 4 & len(activities) >= 2:
             return 1
@@ -120,7 +141,7 @@ class Analysis():
     def _promotion(promotion):
         if promotion == '':
             return 2
-        if len(promotion) >= 4:
+        elif len(promotion) >= 4:
             return 0
         elif len(promotion) <= 3 & len(promotion) >= 2:
             return 1

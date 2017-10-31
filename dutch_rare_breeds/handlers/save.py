@@ -30,7 +30,7 @@ def setup_save_page(request):
     promotion = request.POST.getall('promotion')
     activities = request.POST.getall('activities')
     herdbook = request.POST.get('herdbook', '')
-    elements_breeding_program = request.POST.get('elements_breeding_program', '')
+    elements_breeding_program = request.POST.getall('elements_breeding_program')
     cryobank = request.POST.get('cryobank', '')
     breeding_limitations = request.POST.getall('breeding_limitations')
     professional_members = request.POST.get('professional_members', '')
@@ -38,7 +38,7 @@ def setup_save_page(request):
     output_examples = request.POST.get('output_examples', '')
     specialty_use = request.POST.get('specialty_use', '')
     specialty_examples = request.POST.get('specialty_examples', '')
-    governmental_support = request.POST.get('governmental_support', '')
+    governmental_support = request.POST.getall('governmental_support')
     support_examples = request.POST.get('support_examples', '')
 
 
@@ -85,7 +85,7 @@ def setup_save_page(request):
         promotion=','.join(promotion),
         activities=','.join(activities),
         herdbook=int(herdbook),
-        elements_breeding_program=int(elements_breeding_program),
+        elements_breeding_program=','.join(elements_breeding_program),
         cryobank=int(cryobank),
         breeding_limitations=','.join(breeding_limitations),
         professional_members=int(professional_members),
@@ -93,7 +93,7 @@ def setup_save_page(request):
         output_examples=output_examples,
         specialty_use=int(specialty_use),
         specialty_examples=specialty_examples,
-        governmental_support=int(governmental_support),
+        governmental_support=','.join(governmental_support),
         support_examples=support_examples
     )
     session.add(new_risk_factor)

@@ -7,12 +7,22 @@
     <a href="${edit_link}" class="btn btn-primary float-right" id="edit-link" role="button">Update gegevens doorvoeren</a>
     <h1>${title}</h1>
 
-    <h4>Ras: ${breed.name}, ${species.name}. &nbsp;&nbsp;&nbsp;&nbsp; Vereniging: ${association}</h4>
+    <h4>Ras: ${breed.name}, ${species.name}. &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    Vereniging: ${association}</h4>
 
-    <p><strong>${message}</strong></p>
+    <p><br><strong>${message}</strong></p>
+
     <p>Aantal vrouwelijke fokdieren: ${N_breeding_females}<br>
     Aantal mannelijke fokdieren: ${N_breeding_males}</p>
-    <p>Aantal leden dat dieren van het ras heeft: ${N_breed_keeping_members}<br>s
+    <p>Aantal leden dat dieren van het ras heeft: ${N_breed_keeping_members}<br>
     Aantal actieve fokkers: ${N_active_breeders}<br>Verwachting over 5 jaar: ${continuity_breeding}</p>
     <p>Provincies: ${provinces}<br>
     Dieren aanwezig in het buitenland: ${abroad}, ${abroad_examples}</p>

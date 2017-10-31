@@ -40,7 +40,7 @@ def setup_status_page(request):
         radarvalues = [data[1], data[2], data[3], data[4], data[5], data[6]]
         message = ''
     else:
-        message = 'Geen rapport en analyse beschikbaar'
+        message = 'Te weinig gegevens - geen analyse mogelijk!'
         continuity_breeding_answer = ''
         provinces_answer = ''
         abroad_answer = ''
@@ -76,7 +76,7 @@ def setup_status_page(request):
         'promotion':', '.join(promotion_answer),
         'activities':', '.join(activities_answer),
         'herdbook':herdbook_answer,
-        'elements_breeding_program':elements_breeding_program_answer,
+        'elements_breeding_program':'. '.join(elements_breeding_program_answer),
         'cryobank':cryobank_answer,
         'breeding_limitations':', '.join(limitations_answer),
         'professional_members':professional_members_answer,
@@ -84,7 +84,7 @@ def setup_status_page(request):
         'output_examples':data_risk_factor.output_examples,
         'specialty_use':specialty_use_answer,
         'specialty_examples':data_risk_factor.specialty_examples,
-        'governmental_support':governmental_support_answer,
+        'governmental_support':', '.join(governmental_support_answer),
         'support_examples':data_risk_factor.support_examples,
         'radar':radarvalues,
         'edit_link': edit_link,

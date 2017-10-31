@@ -8,7 +8,7 @@ class Breed(Base):
     __tablename__ = "breeds"
 
     id = Column(UUID, primary_key=True, default=uuid.uuid4)
-    name = Column(String(20))
+    name = Column(String(25))
 
 def get_breed(id_):
     return DBSession.query(Breed)\

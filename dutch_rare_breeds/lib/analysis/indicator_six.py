@@ -14,7 +14,7 @@ class IndicatorSix():
     @staticmethod
     def _find_score(answers, weights):
         """
-answers = a list of intergers 0, 1, or 2
+answers = a list of integers 0, 1, or 2
 weigths = a list of weights
         """
         #checks if correct weights are used
